@@ -1,0 +1,78 @@
+def add(list1,x,inp):
+    if x=="1":
+        list1.append(inp)
+    elif x=="2":
+        list1.add(inp)
+    else:
+        list1[len(list1)]=inp
+    return list1
+def remov(list1,x,inp):
+    if x=="3":
+        ss=list(list1.values()).index(inp)
+        list1.pop(ss)
+    else:
+        list1.remove(inp)
+    return list1
+def modify(list1,x,inp,m):
+    if x=="2":
+        p=remov(list1,x,m)
+        return add(p, x, inp)
+    if x=="1":
+        m=list1.index(m)
+    elif x=="3":
+        m=list(list1.values()).index(m)
+
+    list1[list(list1.keys())[m]]=inp
+    return list1
+
+
+
+#creating sets,dictionary,list
+choice=["list","set","dictionary"]
+ref=["1","2","3"]
+while True:
+    x=input("Please enter the num \n 1-->List\n 2-->set\n3-->dictionary\n 4-->stop  ")
+    if x in ref:
+        #n=int(input("Please enter the number of elements to be store"))
+        if x=="1":
+            print('we are creating a list')
+            list1=input().split()
+        elif x=="2":
+            print('we are creating a set')
+            list1 = set(input().split())
+        elif x=="3":
+            print('we are creating a dictionary')
+            temp=input().split()
+            list1 = {}
+            curr=0
+            for i in temp:
+                list1[curr]=i
+                curr+=1
+        print(list1)
+    elif x=="4":
+        break
+    else:
+        print(".....Please enter valid key.....")
+
+    while True:
+        #performing basic operations
+        ops=["1","2","3"]
+        zz=input("Press the numbers 1-3 for given operations :-\n1--> Adding Elements\n2-->Removing Elements\n3-->Modifying Elements\n 4-->stop ")
+        if zz in ops:
+            if zz=="1":
+                inp = input("enter the element")
+                print("After Adding elements")
+                print(add(list1,x,inp))
+            if zz == "2":
+                inp = input("enter the element")
+                print("After Removing elements")
+                print(remov(list1, x, inp))
+            if zz=="3":
+                m = input("enter the element to be replaced")
+                inp=input("Enter new Element")
+                print("After Modifying elements")
+                print(modify(list1, x, inp,m))
+        elif zz=="4":
+            break
+        else:
+            print("........Please Enter Valid Key.........")
