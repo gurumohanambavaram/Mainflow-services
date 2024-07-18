@@ -1,0 +1,21 @@
+import matplotlib.pyplot as plt
+
+# Bar Chart for Year vs. Income
+plt.figure(figsize=(10, 6))
+plt.bar(df['year'], df['income'], color='blue', label='Income')
+
+plt.xlabel('Year')
+plt.ylabel('Income ($)')
+plt.title('Yearly Income')
+plt.legend()
+plt.show()
+
+# Line Chart for Year vs. Expenditure
+plt.figure(figsize=(10, 6))
+plt.plot(df['year'], df['expenditure'], marker='o', color='orange', label='Expenditure')
+
+plt.xlabel('Year')
+plt.ylabel('Expenditure ($)')
+plt.title('Yearly Expenditure')
+plt.legend()
+plt.show()
