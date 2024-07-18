@@ -1,27 +1,23 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+file_path = 'D:\whatsapp\householdtask3.csv'
+df = pd.read_csv(file_path)
+print(df.head())
 
-# Load the data from the CSV file
-df = pd.read_csv('data.csv')
-
-# Bar Chart
+# Bar Chart for Year vs. Income
 plt.figure(figsize=(10, 6))
-plt.bar(df['Month'], df['Sales'], color='blue', label='Sales')
-plt.bar(df['Month'], df['Expenses'], color='orange', label='Expenses', bottom=df['Sales'])
-
-plt.xlabel('Month')
-plt.ylabel('Amount ($)')
-plt.title('Monthly Sales and Expenses')
+plt.bar(df['year'], df['income'], color='blue', label='Income')
+plt.xlabel('Year')
+plt.ylabel('Income ($)')
+plt.title('Yearly Income')
 plt.legend()
 plt.show()
 
-# Line Chart
+# Line Chart for Year vs. Expenditure
 plt.figure(figsize=(10, 6))
-plt.plot(df['Month'], df['Sales'], marker='o', color='blue', label='Sales')
-plt.plot(df['Month'], df['Expenses'], marker='o', color='orange', label='Expenses')
-
-plt.xlabel('Month')
-plt.ylabel('Amount ($)')
-plt.title('Monthly Sales and Expenses')
+plt.plot(df['year'], df['expenditure'], marker='o', color='orange', label='Expenditure')
+plt.xlabel('Year')
+plt.ylabel('Expenditure ($)')
+plt.title('Yearly Expenditure')
 plt.legend()
 plt.show()
