@@ -1,21 +1,27 @@
+import pandas as pd
 import matplotlib.pyplot as plt
 
-# Bar Chart for Year vs. Income
-plt.figure(figsize=(10, 6))
-plt.bar(df['year'], df['income'], color='blue', label='Income')
+# Load the data from the CSV file
+df = pd.read_csv('data.csv')
 
-plt.xlabel('Year')
-plt.ylabel('Income ($)')
-plt.title('Yearly Income')
+# Bar Chart
+plt.figure(figsize=(10, 6))
+plt.bar(df['Month'], df['Sales'], color='blue', label='Sales')
+plt.bar(df['Month'], df['Expenses'], color='orange', label='Expenses', bottom=df['Sales'])
+
+plt.xlabel('Month')
+plt.ylabel('Amount ($)')
+plt.title('Monthly Sales and Expenses')
 plt.legend()
 plt.show()
 
-# Line Chart for Year vs. Expenditure
+# Line Chart
 plt.figure(figsize=(10, 6))
-plt.plot(df['year'], df['expenditure'], marker='o', color='orange', label='Expenditure')
+plt.plot(df['Month'], df['Sales'], marker='o', color='blue', label='Sales')
+plt.plot(df['Month'], df['Expenses'], marker='o', color='orange', label='Expenses')
 
-plt.xlabel('Year')
-plt.ylabel('Expenditure ($)')
-plt.title('Yearly Expenditure')
+plt.xlabel('Month')
+plt.ylabel('Amount ($)')
+plt.title('Monthly Sales and Expenses')
 plt.legend()
 plt.show()
